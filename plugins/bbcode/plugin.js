@@ -48,6 +48,11 @@ var bbcode = (function () {
     rep(/&lt;/gi, '<');
     rep(/&gt;/gi, '>');
     rep(/&amp;/gi, '&');
+    rep(/<ul>/gi, '[list]');
+    rep(/<\/ul>/gi, '[/list]');
+    rep(/<ol>/gi, '[list=ol]');
+    rep(/<\/ol>/gi, '[/list]');
+    rep(/<li>(.*?)<\/li>/gi, '[*]$1');
     return s;
   };
   var bbcode2html = function (s) {
@@ -68,9 +73,12 @@ var bbcode = (function () {
     rep(/\[color=(.*?)\](.*?)\[\/color\]/gi, '<font color="$1">$2</font>');
     rep(/\[code\](.*?)\[\/code\]/gi, '<span class="codeStyle">$1</span>&nbsp;');
     rep(/\[quote.*?\](.*?)\[\/quote\]/gi, '<span class="quoteStyle">$1</span>&nbsp;');
+    rep(/\[list\]/gi, '<ul>');
+    rep(/\[\/list\]/gi, '</ul>');
+    rep(/\[\*\](.*?)/gi, '<li>$1</li>');
     return s;
   };
-  var $_23ydqr8wjfjlpcc6 = {
+  var $_bbf6kw8yjfsb9sxu = {
     html2bbcode: html2bbcode,
     bbcode2html: bbcode2html
   };
@@ -79,14 +87,14 @@ var bbcode = (function () {
     return {
       init: function (editor) {
         editor.on('beforeSetContent', function (e) {
-          e.content = $_23ydqr8wjfjlpcc6.bbcode2html(e.content);
+          e.content = $_bbf6kw8yjfsb9sxu.bbcode2html(e.content);
         });
         editor.on('postProcess', function (e) {
           if (e.set) {
-            e.content = $_23ydqr8wjfjlpcc6.bbcode2html(e.content);
+            e.content = $_bbf6kw8yjfsb9sxu.bbcode2html(e.content);
           }
           if (e.get) {
-            e.content = $_23ydqr8wjfjlpcc6.html2bbcode(e.content);
+            e.content = $_bbf6kw8yjfsb9sxu.html2bbcode(e.content);
           }
         });
       }
