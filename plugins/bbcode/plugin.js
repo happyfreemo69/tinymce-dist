@@ -42,7 +42,7 @@ var bbcode = (function () {
     rep(/<br\/>/gi, '');
     rep(/<br>/gi, '');
     rep(/<p>/gi, '');
-    rep(/<\/p>/gi, '\n');
+    rep(/<\/p>/gi, '');
     rep(/&nbsp;|\u00a0/gi, ' ');
     rep(/&quot;/gi, '"');
     rep(/&lt;/gi, '<');
@@ -80,7 +80,7 @@ var bbcode = (function () {
     rep(/\[\*\]([^\[\*\]]*)/gi, '<li>$1</li>');
     return s;
   };
-  var $_7pibl78yjftf73ms = {
+  var $_e2rxuw8yjfti8s74 = {
     html2bbcode: html2bbcode,
     bbcode2html: bbcode2html
   };
@@ -89,14 +89,14 @@ var bbcode = (function () {
     return {
       init: function (editor) {
         editor.on('beforeSetContent', function (e) {
-          e.content = $_7pibl78yjftf73ms.bbcode2html(e.content);
+          e.content = $_e2rxuw8yjfti8s74.bbcode2html(e.content);
         });
         editor.on('postProcess', function (e) {
           if (e.set) {
-            e.content = $_7pibl78yjftf73ms.bbcode2html(e.content);
+            e.content = $_e2rxuw8yjfti8s74.bbcode2html(e.content);
           }
           if (e.get) {
-            e.content = $_7pibl78yjftf73ms.html2bbcode(e.content);
+            e.content = $_e2rxuw8yjfti8s74.html2bbcode(e.content);
           }
         });
       }
