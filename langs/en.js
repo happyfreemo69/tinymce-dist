@@ -1,4 +1,4 @@
-tinymce.addI18n('en_CA',{
+tinymce.addI18n('en',{
 "Redo": "Redo",
 "Undo": "Undo",
 "Cut": "Cut",
