@@ -1,3 +1,22 @@
+# Forked repository for Citylity
+
+This repository was forked to improve the use of BBCode in the TinyMCE widget.
+
+The problem was that our client whishes to have the possibility to add bullet lists in the widget, but the original TinyMCE widget supports only [http://punbb.informer.com/](PunBB). So, it is impossible to add lists with the original widget plugin [https://www.tiny.cloud/docs/plugins/bbcode/](https://www.tiny.cloud/docs/plugins/bbcode/).
+
+The solution was to add this functionality directly to the plugin specifically to the `plugins/bbcode/plugin.js` file.
+
+This is not extemp of bugs because of how TinyMCE handles the breaklines, so in some cases the lists will show weird behaviors like adding extra lines or breaking the elements.
+
+Some solutions were thought to solve this issue [https://taiga.citylity.com/project/admin-synty/issue/5660](https://taiga.citylity.com/project/admin-synty/issue/5660) and they are:
+
+- We stop using BBCode and we change the field affected to HTML in the API.
+- We keep the plugin but we stop using lists.
+- We use an specific widget that supports BBCode lists.
+
+---
+
+
 TinyMCE - JavaScript Library for Rich Text Editing
 ===================================================
 
